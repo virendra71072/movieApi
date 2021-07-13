@@ -7,7 +7,7 @@ var randamString = Math.random().toString(36).substring(2,7);
 
 var page = 1,
     limit = 10,
-    movieId = ''
+    movieId = 'godzilla-vs-kong-399566'
     token;
 
 
