@@ -93,7 +93,7 @@ exports.getMovie = function (req, res, next) {
     let headerSchema = {};
 
     let schema = {
-        productId   : {
+        movieId   : {
             notEmpty: true
         },
     };

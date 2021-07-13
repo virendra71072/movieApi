@@ -1,9 +1,11 @@
 const constant              = require(__basePath + '/app/config/constant');
+const config                = require(constant.path.app + 'core/configuration');
 const response              = require(constant.path.app + 'util/response');
 const utility               = require(constant.path.app + 'util/utility');
 const async                 = require('async');
 const {logger}              = require(constant.path.app + 'core/logger');
-const movieModel          = require(constant.path.app + 'module/model/database/movieModel');
+const movieModel            = require(constant.path.app + 'module/model/database/movieModel');
+const tmdb                  = require('tmdbv3').init(config.get('moviesProvider:key'));
 
 const movieModelObj       = new movieModel();
 
@@ -13,42 +15,40 @@ const movieModelObj       = new movieModel();
  * @param {object} res
  * @returns {json}
  */
-// exports.getProduct = function (req, res, next) {
-//     let {movieDetail, currencyRate, currency } = req;
-//
-//     logger.info('[movie] movie with param %s,%s,%s', movieDetail.movieId, currencyRate, currency);
-//     movieDetail['price'] = movieDetail['price'] *  currencyRate;
-//
-//     //Update the movie view count
-//     let updateCount = function(callback) {
-//         movieModelObj.updateCount(movieDetail.movieId, function (error, result) {
-//             if (error) {
-//                 return callback(error);
-//             }
-//
-//             if (utility.isEmpty(result) === true) {
-//                 return callback(null, false);
-//             } else {
-//                 return callback(null, result);
-//             }
-//         });
-//     }
-//
-//     async.waterfall([
-//         updateCount
-//     ], function (error, result, body) {
-//         if (error) {
-//             return res.status(500).json(response.build('ERROR_SERVER_ERROR', {error: error}));
-//         }
-//
-//         if (result == false) {
-//             return res.status(500).json(response.build('USER_NOT_FOUND'));
-//         }
-//
-//         logger.info('[movie] Returned with status [%s] & result:', 200, JSON.stringify(movieDetail));
-//         return res.status(200).json(response.build('SUCCESS', movieDetail));
-//     });
-// };
+exports.getMovie = function (req, res, next) {
+    let {movieDetail } = req;
+
+    logger.info('[movie] movie with param %s,%s,%s', movieDetail.url);
+
+    //Update the movie view count
+    let updateCount = function(callback) {
+        tmdb.movie.info(movieDetail.movieId, (err ,res) => {
+            if (err) {
+                callback(null)
+            }
+
+            if (!!res.results) {
+                callback(null, res);
+            }
+        });
+
+    };
+
+    async.waterfall([
+        updateCount
+    ], function (error, result, body) {
+        if (error) {
+            return res.status(500).json(response.build('ERROR_SERVER_ERROR', {error: error}));
+        }
+
+        if (result == false) {
+            return res.status(500).json(response.build('ERROR_NO_DATA'));
+        }
+
+        logger.info('[movie] Returned with status [%s] & result:', 200, JSON.stringify(movieDetail));
+        return res.status(200).json(response.build('SUCCESS', result));
+    });
+};
 
 /*
  * get the list of movie (POPULAR || LATEST)

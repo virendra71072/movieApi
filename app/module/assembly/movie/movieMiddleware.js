@@ -48,7 +48,7 @@ exports.loadDetail = function (req, res, next) {
 
     let loadData = function(callback) {
 
-        movieModelObj.getDetailById(movieId, function (error, result) {
+        movieModelObj.getMovieByUrl(movieId, function (error, result) {
             if (error) {
                 return callback(error);
             }
