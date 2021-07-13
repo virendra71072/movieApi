@@ -74,5 +74,28 @@ describe('get Movie detail', function () {
     });
 });
 
+describe('get Movie detail wrong', function () {
+    it('Should return a 200 response', function (done) {
+        api.get(`movie/1234`)
+            .set('token', token)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .expect(function(res) {
+                //console.log('+++++',res.body);
+            })
+            .expect(500, done);
+    });
+});
+
+describe('Passing invalid token', function () {
+    it('Should return a 200 response', function (done) {
+        api.get(`movie/${movieId}`)
+            .set('token', 'dffdf')
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .expect(function(res) {
+                //console.log('+++++',res.body);
+            })
+            .expect(500, done);
+    });
+});
 
 
