@@ -22,13 +22,13 @@ router.get(
 );
 
 /* get a movie detail by id */
-// router.get(
-//     '/:movieId',
-//     validation.getMovie,
-//     movieMiddleware.validateToken,
-//     movieMiddleware.loadMovie,
-//     movieAssembly.getMovie
-// );
+router.get(
+    '/:movieId',
+    validation.getMovie,
+    movieMiddleware.validateToken,
+    movieMiddleware.loadDetail,
+    movieAssembly.getMovie
+);
 
 module.exports = {
     router: router
