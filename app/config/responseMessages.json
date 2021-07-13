@@ -12,9 +12,9 @@
             "errorCode": "102",
             "message"  : "User does not exists"
         },
-        "ERROR_PRODUCT_NOT_EXISTS": {
+        "ERROR_MOVIE_NOT_EXISTS": {
             "errorCode": "102",
-            "message"  : "Invalid Product!"
+            "message"  : "Invalid Movies!"
         },
         "ERROR_USER_ALREADY_EXISTS": {
             "errorCode": "103",
@@ -31,10 +31,6 @@
         "ERROR_SERVER_ERROR": {
             "errorCode": "106",
             "message"  : "Server Error"
-        },
-        "ERROR_CURRENCY_API_SERVER_ERROR": {
-            "errorCode": "106",
-            "message"  : "Currency API Error"
         },
         "USER_NOT_FOUND": {
             "errorCode": "107",

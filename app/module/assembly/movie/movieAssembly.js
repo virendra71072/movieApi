@@ -5,7 +5,7 @@ const utility               = require(constant.path.app + 'util/utility');
 const async                 = require('async');
 const {logger}              = require(constant.path.app + 'core/logger');
 const movieModel            = require(constant.path.app + 'module/model/database/movieModel');
-const tmdb                  = require('tmdbv3').init(config.get('moviesProvider:key'));
+//
 
 const movieModelObj       = new movieModel();
 
@@ -15,19 +15,21 @@ const movieModelObj       = new movieModel();
  * @param {object} res
  * @returns {json}
  */
-exports.getMovie = function (req, res, next) {
+exports.getMovieDetail = function (req, res, next) {
     let {movieDetail } = req;
 
-    logger.info('[movie] movie with param %s,%s,%s', movieDetail.url);
+    const tmdb  = require('tmdbv3').init(config.get('moviesProvider:key'));
+
+    logger.info('[movie] movie with param %s', movieDetail.url);
 
     //Update the movie view count
-    let updateCount = function(callback) {
+    let fetchDetail = function(callback) {
         tmdb.movie.info(movieDetail.movieId, (err ,res) => {
             if (err) {
                 callback(null)
             }
 
-            if (!!res.results) {
+            if (!!res && !!res.id) {
                 callback(null, res);
             }
         });
@@ -35,8 +37,8 @@ exports.getMovie = function (req, res, next) {
     };
 
     async.waterfall([
-        updateCount
-    ], function (error, result, body) {
+        fetchDetail
+    ], function (error, result) {
         if (error) {
             return res.status(500).json(response.build('ERROR_SERVER_ERROR', {error: error}));
         }
@@ -45,7 +47,10 @@ exports.getMovie = function (req, res, next) {
             return res.status(500).json(response.build('ERROR_NO_DATA'));
         }
 
-        logger.info('[movie] Returned with status [%s] & result:', 200, JSON.stringify(movieDetail));
+        result['backdrop_path'] = `${config.get('moviesProvider:imagePath')}${result['backdrop_path']}`;
+        result['imageHost'] = config.get('moviesProvider:imagePath');
+
+        logger.info('[movie] Returned with status [%s] & result:', 200, JSON.stringify(result));
         return res.status(200).json(response.build('SUCCESS', result));
     });
 };

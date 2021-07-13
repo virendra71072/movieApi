@@ -12,23 +12,24 @@ const movieMiddleware = require(constant.path.module + 'assembly/movie/movieMidd
 /*
  * Router list
  */
-
-/* get list of movie whose view count is more than 0 */
-router.get(
-    '/list/:type',
-    movieMiddleware.validateToken,
-    validation.listType,
-    movieAssembly.list
-);
-
 /* get a movie detail by id */
 router.get(
     '/:movieId',
     validation.getMovie,
     movieMiddleware.validateToken,
     movieMiddleware.loadDetail,
-    movieAssembly.getMovie
+    movieAssembly.getMovieDetail
 );
+
+/* get list of movie whose view count is more than 0 */
+router.get(
+    '/list/:type',
+     movieMiddleware.validateToken,
+    validation.listType,
+    movieAssembly.list
+);
+
+
 
 module.exports = {
     router: router

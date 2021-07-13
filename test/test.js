@@ -7,7 +7,7 @@ var randamString = Math.random().toString(36).substring(2,7);
 
 var page = 1,
     limit = 10,
-    movieId = 'godzilla-vs-kong-399566'
+    movieId = 'godzilla-vs-kong-399566',
     token;
 
 
@@ -19,7 +19,7 @@ describe('generate token',function () {
         api.get('user/generateToken')
             .expect('Content-Type', 'application/json; charset=utf-8')
             .expect(function(res) {
-                console.log('Token generated : ',res.body.response.token);
+                //console.log('Token generated : ',res.body.response.token);
                 if (!!res.body && !!res.body.response && !!res.body.response.token) {
                     token = res.body.response.token;
                 }

@@ -36,6 +36,6 @@
         "key": "de520600d60921d306a2f923f932b914",
         "host": "https://api.themoviedb.org/3/",
         "key4": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZTUyMDYwMGQ2MDkyMWQzMDZhMmY5MjNmOTMyYjkxNCIsInN1YiI6IjYwZWMyY2FiYTZjMTA0MDA3Mzk2ZmVhYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pHd_pySFcL3Njdseh2CxDtDlN80BzBpSK1t0MJA3YtE",
-        "imagePath": "https://www.themoviedb.org/t/p/w440_and_h660_face/"
+        "imagePath": "https://www.themoviedb.org/t/p/w440_and_h660_face"
     }
 }

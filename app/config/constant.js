@@ -8,6 +8,5 @@ module.exports = {
         module      : basePath + 'app/module/',
         log         : basePath + 'asset/log/',
     },
-    defaultToken: "KEI29D763HDBDI20DOWK34GESD24HD7Y",
-
+    defaultToken: "KEI29D763HDBDI20DOWK34GESD24HD7Y"
 };
