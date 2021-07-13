@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c77bda85-0db2-4fdf-a837-d860ee0c52de" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/module/assembly/movie/movieAssembly.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/module/assembly/movie/movieAssembly.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/module/assembly/movie/movieMiddleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/module/assembly/movie/movieMiddleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/module/assembly/movie/movieValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/module/assembly/movie/movieValidation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.example.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.example.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,11 +26,41 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/module/assembly/movie/movieAssembly.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="570">
               <caret line="50" column="2" lean-forward="true" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="183">
+                <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/config.development.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="585">
+              <caret line="39" column="5" selection-end-line="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/config.example.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
             </state>
           </provider>
         </entry>
@@ -96,6 +126,9 @@
         <option value="$PROJECT_DIR$/app/module/assembly/movie/movieMiddleware.js" />
         <option value="$PROJECT_DIR$/app/module/assembly/movie/movieValidation.js" />
         <option value="$PROJECT_DIR$/app/module/assembly/movie/movieAssembly.js" />
+        <option value="$PROJECT_DIR$/app/config/config.development.json" />
+        <option value="$PROJECT_DIR$/app/config/config.example.json" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -212,12 +245,12 @@
       <updated>1626144060994</updated>
       <workItem from="1626144064464" duration="55000" />
       <workItem from="1626144568446" duration="33000" />
-      <workItem from="1626145895633" duration="382000" />
+      <workItem from="1626145895633" duration="934000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="382000" />
+    <option name="totallyTimeSpent" value="934000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -268,13 +301,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/cronjobs/fetchLatesMovies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="22" column="11" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="22" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/module/model/database/movieModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -293,6 +319,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="50" column="2" lean-forward="true" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/cronjobs/fetchLatesMovies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="22" column="11" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="22" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.example.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.development.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="5" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="183">
+            <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
