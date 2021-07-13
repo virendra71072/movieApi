@@ -17,11 +17,15 @@ Need to import database file from database folder (database/movieInfo.sql)
 Need to configure configure.development file (app/config/config.development.json)
     - port setup
     - database setup (MASTER & SLAVE) => Write in Master & Read from Slave
-    - credential setup for 3rd party service like get current rate 
+    - credential setup for 3rd party service like themoviedb
 
 Set Permission to asset folder for logger
 
 npm install;
+
+#cron script file
+node app/cronjobs/fetchLatestMovies.js
+
 npm start;
 
 For Testing
@@ -142,7 +146,7 @@ Or
 
 
 3. http://localhost:8085/api/v1/movie/:type?currency=USD&limit=5&page=1
-	Description: get most view movie
+	Description: get list of Latest or popular movie
 
 	method : GET
 	header: {
