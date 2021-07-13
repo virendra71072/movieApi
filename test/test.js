@@ -5,59 +5,18 @@ var should      = require('chai').should(),
 
 var randamString = Math.random().toString(36).substring(2,7);
 
-var name = randamString,
-    email = randamString + '@gmail.com',
-    password = '1234567',
-    productName = 'Test Product',
-    price = 5,
-    description = "test description",
-    currency = 'CAD',
-    page = 1,
-    limit = 5,
-    token,
-    productId = "1234";
+var page = 1,
+    limit = 10,
+    movieId = ''
+    token;
 
 
 
 
-describe('Create Users', function () {
+describe('generate token',function () {
     it('Should return a 200 response', function (done) {
         //use this.timeout(6000); to set timeout in miliseconds, default value for the timeout is 2000 miliseconds
-        api.post('user')
-            .send({
-                "name": name,
-                "email": email,
-                "password": password,
-                "confirmPassword": password
-            })
-            .expect('Content-Type', 'application/json; charset=utf-8')
-            .expect(200, done);
-    });
-});
-
-describe('Create Users validation error', function () {
-    it('Should return a 400 response', function (done) {
-        //use this.timeout(6000); to set timeout in miliseconds, default value for the timeout is 2000 miliseconds
-        api.post('user')
-            .send({
-                "name": name,
-                "email": "",
-                "password": password,
-                "confirmPassword": password
-            })
-            .expect('Content-Type', 'application/json; charset=utf-8')
-            .expect(400, done);
-    });
-});
-
-describe('Login user',function () {
-    it('Should return a 200 response', function (done) {
-        //use this.timeout(6000); to set timeout in miliseconds, default value for the timeout is 2000 miliseconds
-        api.post('user/login')
-            .send({
-                "email":email,
-                "password": password
-            })
+        api.get('user/generateToken')
             .expect('Content-Type', 'application/json; charset=utf-8')
             .expect(function(res) {
                 console.log('Token generated : ',res.body.response.token);
@@ -69,50 +28,43 @@ describe('Login user',function () {
     });
 });
 
-describe('Create movie', function () {
-    it('Should return a 200 response', function (done) {
-        api.post('product')
-            .set('token', token)
-            .send({
-                "name": productName,
-                "price": price,
-                "description": description
-            })
-            .expect('Content-Type', 'application/json; charset=utf-8')
-            .expect(200, done);
-    });
-});
 
-describe('get most view movie list', function () {
+describe('get latest movie list', function () {
     it('Should return a 200 response', function (done) {
-        api.get('movie/most-view')
+        api.get('movie/list/LATEST')
             .set('token', token)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .expect(function(res) {
-                console.log('productId = ',res.body.response[0]["productId"]);
-                if (!!res.body && !!res.body.response && !!res.body.response[0]) {
-                    productId = res.body.response[0]["productId"];
-                }
             })
             .expect(200, done);
     });
 });
 
-describe('get Product', function () {
+describe('get popular movie list', function () {
     it('Should return a 200 response', function (done) {
-        api.get(`product/${productId}`)
+        api.get('movie/list/POPULAR')
             .set('token', token)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .expect(function(res) {
-                //console.log('+++++',res.body);
             })
             .expect(200, done);
     });
 });
 
-describe('delete Product', function () {
+describe('get popular movie list', function () {
+    it('Should return a 500 response', function (done) {
+        api.get('movie/list/TEST')
+            .set('token', token)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .expect(function(res) {
+            })
+            .expect(500, done);
+    });
+});
+
+describe('get Movie detail', function () {
     it('Should return a 200 response', function (done) {
-        api.delete(`product/${productId}`)
+        api.get(`movie/${movieId}`)
             .set('token', token)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .expect(function(res) {
@@ -121,5 +73,6 @@ describe('delete Product', function () {
             .expect(200, done);
     });
 });
+
 
 
